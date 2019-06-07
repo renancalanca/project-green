@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'CHAVES_GOOGLE_MAPS'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
