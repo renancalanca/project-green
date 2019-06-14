@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(
-    private route: Router,
-  ) {
-    
-  }
+  constructor() {  }
 
   ngOnInit() {
   }

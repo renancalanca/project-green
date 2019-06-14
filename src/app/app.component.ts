@@ -1,3 +1,4 @@
+import { UserService } from './services/user.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project-green';
+
+  constructor(public user: UserService) {
+
+  }
+
 }

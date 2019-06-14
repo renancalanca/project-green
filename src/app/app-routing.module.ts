@@ -4,6 +4,11 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
