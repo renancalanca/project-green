@@ -11,15 +11,15 @@ import { auth } from 'firebase';
 })
 export class UserService {
 
-  // uid = this.afAuth.authState.pipe(
-  //   map(authState => {
-  //     if (!authState.uid) {
-  //       return null;
-  //     } else {
-  //       return authState.uid;
-  //     }
-  //   }),
-  // );
+  uid = this.afAuth.authState.pipe(
+    map(authState => {
+      if (!authState.uid) {
+        return null;
+      } else {
+        return authState.uid;
+      }
+    }),
+  );
   isAdmin = observableOf(true);
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabaseModule) { }
