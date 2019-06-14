@@ -11,12 +11,14 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AgmCoreModule } from '@agm/core';
 import { RegisterComponent } from './register/register.component';
+import { MapsComponent } from './maps/maps.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MapsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -26,7 +28,7 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'CHAVES_GOOGLE_MAPS'
+      apiKey: 'AIzaSyDReaSBg9id9yMGLYN6rnde-eyxOFtJpYo'
     }),
   ],
   providers: [],

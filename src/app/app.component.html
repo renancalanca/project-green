@@ -1,4 +1,4 @@
-<div *ngIf="user.uid | async as uid; else login">
+<!-- <div *ngIf="user.uid | async as uid; else login">
   The user is Logged in. {{uid}}
   <div *ngIf="user.isAdmin | async">
     The user also has Admin props.
@@ -7,6 +7,10 @@
 </div>
 
 <ng-template #login>
+  You need to login!
+  <button (click)="user.login()">Autenticar com Google</button>
+</ng-template> -->
+<ng-template #maps>
   You need to login!
   <button (click)="user.login()">Autenticar com Google</button>
 </ng-template>

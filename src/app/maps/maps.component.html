@@ -1,0 +1,15 @@
+<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" (mapClick)="mapClicked($event)">
+  <agm-marker *ngFor="let m of skates; let i = index" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label"
+    [markerDraggable]="m.draggable" [iconUrl]="
+    {
+      url: './assets/images/icons8-cor-96.png',
+      scaledSize: {
+          width: 40,
+          height: 60
+      }
+  }
+    ">
+  </agm-marker>
+</agm-map>
+
+<input type="button" value="Salvar">
