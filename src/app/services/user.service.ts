@@ -1,35 +1,82 @@
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Injectable } from '@angular/core';
-import { of as observableOf } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { auth } from 'firebase';
-
+import { AngularFireAuth } from "@angular/fire/auth";
+import { Injectable } from "@angular/core";
+import * as firebase from "firebase/app";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class UserService {
+  constructor(private afAuth: AngularFireAuth) {}
 
-  uid = this.afAuth.authState.pipe(
-    map(authState => {
-      if (!authState.uid) {
-        return null;
-      } else {
-        return authState.uid;
-      }
-    }),
-  );
-  isAdmin = observableOf(true);
-
-  constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabaseModule) { }
-
-  login () {
-    console.log(this.afAuth.auth);
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  googleAuthenticate() {
+    return new Promise<any>((resolve, reject) => {
+      let provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope("profile");
+      provider.addScope("email");
+      this.afAuth.auth.signInWithRedirect(provider).then(
+        res => {
+          resolve(res);
+        },
+        err => {
+          console.log(err);
+          reject(err);
+        }
+      );
+    });
   }
 
-  logout () {
+  getLoggedUser() {
+    return this.afAuth.authState;
+  }
+
+  facebookAuthenticate() {
+    return new Promise<any>((resolve, reject) => {
+      let provider = new firebase.auth.FacebookAuthProvider();
+      this.afAuth.auth.signInWithRedirect(provider).then(
+        res => {
+          resolve(res);
+        },
+        err => {
+          console.log(err);
+          reject(err);
+        }
+      );
+    });
+  }
+
+  logout() {
     this.afAuth.auth.signOut();
+  }
+
+  doRegister(value) {
+    return new Promise<any>((resolve, reject) => {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(value.email, value.password)
+        .then(
+          res => {
+            resolve(res);
+          },
+          err => reject(err)
+        );
+    });
+  }
+
+  passwordReset(email) {
+    return new Promise<any>((resolve, reject) => {
+      firebase
+        .auth()
+        .sendPasswordResetEmail(email)
+        .then(
+          res => {
+            console.log(res);
+            alert('E-mail de redefinição encaminhado.');
+          },
+          err => {
+            console.log(err);
+            alert('Este e-mail não está cadastrado no sistema.');
+          }
+        );
+    });
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MouseEvent } from '@agm/core';
-import {SkateModel} from '../models/skate.models';
+import { SkateModel } from 'src/app/models/skate.models';
 
 @Component({
   selector: 'app-maps',

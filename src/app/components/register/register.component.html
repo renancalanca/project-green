@@ -1,0 +1,60 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="register-main">
+  <mat-card>
+    <mat-card-title>
+      Cadastro
+    </mat-card-title>
+    <hr />
+
+    <mat-card-content fxLayout="column">
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="registerForm.valid && onRegister(registerForm.value)"
+        novalidate
+      >
+        <mat-form-field>
+          <input
+            id="email"
+            matInput
+            formControlName="email"
+            [(ngModel)]="user.email"
+            placeholder="Email"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            id="password"
+            matInput
+            formControlName="password"
+            [(ngModel)]="user.password"
+            placeholder="Senha"
+            type="password"
+            [type]="hide ? 'text' : 'password'"
+          />
+          <mat-icon matSuffix (click)="hide = !hide">
+            {{ hide ? "visibility" : "visibility_off" }}
+          </mat-icon>
+        </mat-form-field>
+
+        <div fxLayoutAlign="center start">
+          <button
+            mat-button
+            [routerLink]="['/login']"
+            class="mat-raised-button mat-secondary"
+          >
+            <mat-icon>arrow_back</mat-icon>
+            <span class="mat-button-wrapper">Voltar</span>
+          </button>
+          <button
+            mat-button
+            class="mat-raised-button mat-primary ml-2"
+            type="submit"
+            [disabled]="!registerForm.valid"
+          >
+            <mat-icon>done</mat-icon>
+            <span class="mat-button-wrapper"> Confirmar</span>
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

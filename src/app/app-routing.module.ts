@@ -1,14 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { MapsComponent } from './maps/maps.component';
+import { LoginComponent } from './components/login/login.component';
+import { MapsComponent } from './components/maps/maps.component';
+import { RegisterComponent } from './components/register/register.component';
 import { ModuleWithProviders, NgModule } from '@angular/core';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'login',
-  //   pathMatch: 'full'
-  // },
   {
     path: 'login',
     component: LoginComponent,
@@ -16,6 +13,16 @@ const routes: Routes = [
   {
     path: 'maps',
     component: MapsComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: { title: 'Registro' }
+  },
+  {
+    path: 'password-reset',
+    component: PasswordResetComponent,
+    data: { title: 'Redefinição de Senha' }
   },
 ];
 

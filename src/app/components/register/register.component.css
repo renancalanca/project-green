@@ -1,0 +1,16 @@
+.register-main{
+    margin-top: 10%; 
+}
+
+mat-card {
+  background: rgba(230, 230, 230, 0.95);
+  min-width: 40%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.otherAuthenticate {
+  margin: 0 1em;
+}
