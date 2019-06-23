@@ -27,17 +27,15 @@ const routes: Routes = [
     data: { title: 'Redefinição de Senha' }
   },
   {
-<<<<<<< HEAD
     path: 'insert-point',
     component: InsertPointComponent,
     data: { title: 'Inserir novo Ponto' }
   },
-=======
+  {
     path: 'edit-profile',
     component: EditProfileComponent,
     data: { title: 'Alteração de perfil' }
   }
->>>>>>> 770c0f562f721c4f31c8d06185e9536bbc74189d
 ];
 
 
