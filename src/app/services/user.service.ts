@@ -126,9 +126,7 @@ export class UserService {
   //     });
   // }
 
-  onSelfDelete() {
-    var user = firebase.auth().currentUser;
-
+  onSelfDelete(user) {
     user
       .delete()
       .then(function() {

@@ -1,3 +1,4 @@
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -33,6 +34,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     ToolbarComponent,
     PasswordResetComponent,
     EditProfileComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -51,6 +53,9 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
       apiKey: "GoogleApiKey"
       // apiKey: "AIzaSyDReaSBg9id9yMGLYN6rnde-eyxOFtJpYo"s
     })
+  ],
+  entryComponents: [
+    ConfirmationDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -31,7 +31,8 @@ export class RegisterComponent implements OnInit {
   onRegister(value) {
     this.userService.doRegister(value)
     .then(res => {
-      this.router.navigate(['']);
+      alert('Cadastro realizado com sucesso.');
+      this.router.navigate(['maps']);
     }, err => {
       if (err.message == 'The email address is already in use by another account.') {
         alert('O endereço de email já está em uso.');
