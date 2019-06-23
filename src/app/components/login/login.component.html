@@ -8,7 +8,7 @@
     <mat-card-content fxLayout="column">
       <form
         [formGroup]="loginForm"
-        (ngSubmit)="loginForm.valid && onLogin()"
+        (ngSubmit)="loginForm.valid && onLogin(loginForm.value)"
         novalidate
       >
         <mat-form-field class="loginFullWidth">

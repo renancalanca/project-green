@@ -1,3 +1,4 @@
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,11 +18,12 @@ import {
   BrowserAnimationsModule,
   NoopAnimationsModule
 } from '@angular/platform-browser/animations';
+import { InsertPointComponent } from './components/insert-point/insert-point.component';
 import { MaterialModule } from './material-module';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { InsertPointComponent } from './components/insert-point/insert-point.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { InsertPointComponent } from './components/insert-point/insert-point.com
     RegisterComponent,
     ToolbarComponent,
     PasswordResetComponent,
-    InsertPointComponent
+    InsertPointComponent,
+    EditProfileComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -48,8 +52,11 @@ import { InsertPointComponent } from './components/insert-point/insert-point.com
     FlexLayoutModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDReaSBg9id9yMGLYN6rnde-eyxOFtJpYo'
+      apiKey: 'GoogleApiKey'
     })
+  ],
+  entryComponents: [
+    ConfirmationDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
