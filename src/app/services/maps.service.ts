@@ -25,7 +25,7 @@ export class MapsService {
   }
 
   getAll() {
-    return this.db.list('contato')
+    return this.db.list('station')
       .snapshotChanges()
       .pipe(
         map(changes => {

@@ -1,0 +1,51 @@
+<body>
+  <div class="insert-point-holder">
+    <div class="content-fluid">
+      <div class="row justify-content-sm-center pt-5">
+        <div class="content col-sm-8 col-md-6">
+          <h2 class="text-center">Novo Ponto</h2>
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="local">Local:</label>
+              <input type="local" formControlName="local" placeholder="Local" name="local" class="form-control"
+                id="local" [ngClass]="{ 'is-invalid': submitted && f.local.errors }" />
+              <div *ngIf="submitted && f.local.errors" class="invalid-feedback">
+                <div *ngIf="f.local.errors.required">Local é obrigatório</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="latitude">Latitude:</label>
+              <input formControlName="latitude" placeholder="Latitude" name="latitude" type="number"
+                class="form-control" id="latitude" [ngClass]="{ 'is-invalid': submitted && f.latitude.errors }" />
+              <div *ngIf="submitted && f.latitude.errors" class="invalid-feedback">
+                <div *ngIf="f.latitude.errors.required">Latitude é obrigatório</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="longitude">Longitude:</label>
+              <input formControlName="longitude" placeholder="Longitude" name="longitude" type="number"
+                class="form-control" id="longitude" [ngClass]="{ 'is-invalid': submitted && f.longitude.errors }" />
+              <div *ngIf="submitted && f.longitude.errors" class="invalid-feedback">
+                <div *ngIf="f.longitude.errors.required">Longitude é obrigatório</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="capacidade">Capacidade:</label>
+              <input formControlName="capacidade" placeholder="Capacidade" name="capacidade" class="form-control"
+                id="capacidade" [ngClass]="{ 'is-invalid': submitted && f.capacidade.errors }" />
+              <div *ngIf="submitted && f.capacidade.errors" class="invalid-feedback">
+                <div *ngIf="f.capacidade.errors.required">Capacidade é obrigatório</div>
+              </div>
+            </div>
+
+            <button class="btn btn-success">Confirm</button>
+            <button class="btn btn-danger" style="margin-left: 20px;" (click)="return()">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

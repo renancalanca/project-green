@@ -4,6 +4,7 @@ import { MapsComponent } from './components/maps/maps.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { InsertPointComponent } from './components/insert-point/insert-point.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: 'password-reset',
     component: PasswordResetComponent,
     data: { title: 'Redefinição de Senha' }
+  },
+  {
+    path: 'insert-point',
+    component: InsertPointComponent,
+    data: { title: 'Inserir novo Ponto' }
   },
 ];
 

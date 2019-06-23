@@ -1,6 +1,7 @@
-<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" (mapClick)="mapClicked($event)">
-  <agm-marker *ngFor="let m of skates; let i = index" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label"
-    [markerDraggable]="m.draggable" [iconUrl]="
+<div class="container-fluid">
+  <h1>Estações de Skate</h1>
+  <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+    <agm-marker *ngFor="let m of stations; let i=index" [latitude]="m.lat" [longitude]="m.lng" [iconUrl]="
     {
       url: './assets/images/icons8-cor-96.png',
       scaledSize: {
@@ -9,7 +10,7 @@
       }
   }
     ">
-  </agm-marker>
-</agm-map>
-
-<input type="button" value="Salvar">
+    </agm-marker>
+  </agm-map>
+  <button type="button" id="btnNewPoint" (click)="newPoint()" class="btn btn-primary btn-lg">Adionar novo ponto</button>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MouseEvent } from '@agm/core';
-import { SkateModel } from 'src/app/models/skate.models';
+import { PointService } from 'src/app/services/point.service';
+import { PointModel } from 'src/app/models/point.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-maps',
@@ -12,28 +13,28 @@ export class MapsComponent implements OnInit {
   lat: any;
   lng: any;
   zoom = 15;
-  skates: SkateModel[] = [];
+  stations: Array<PointModel> = [];
   icon = '../images/icons8-cor-96.png';
 
-  constructor() { }
+  constructor(private pointService: PointService, private router: Router) { }
 
   ngOnInit() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(pos => {
-        this.lng = +pos.coords.longitude;
-        this.lat = +pos.coords.latitude;
+        this.lng = -47.05382886341033;
+        this.lat = -22.875586374502863;
       });
     }
+    this.getPoints();
   }
 
-  mapClicked($event: MouseEvent) {
-    console.log('cliquei');
-    this.skates.push({
-      lat: $event.coords.lat,
-      lng: $event.coords.lng,
-      draggable: true
+  private getPoints() {
+    this.pointService.getPoints().subscribe((data: Array<PointModel>) => {
+      this.stations = data;
     });
+  }
 
-    console.log(this.skates);
+  public newPoint() {
+    this.router.navigate(['insert-point']);
   }
 }
