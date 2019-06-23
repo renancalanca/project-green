@@ -1,0 +1,87 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="edit-main">
+  <mat-card>
+    <mat-card-title>
+      Alterar perfil
+    </mat-card-title>
+    <hr />
+
+    <mat-card-content fxLayout="column">
+      <form
+        [formGroup]="editForm"
+        (ngSubmit)="onEdit(editForm.value)"
+        novalidate
+      >
+        <mat-form-field>
+          <input
+            id="email"
+            matInput
+            placeholder="Email"
+            disabled
+            value="{{ isAuthenticated?.email }}"
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            id="password"
+            matInput
+            formControlName="password"
+            [(ngModel)]="user.password"
+            placeholder="Senha"
+            type="password"
+            [type]="hide ? 'text' : 'password'"
+          />
+          <mat-icon matSuffix (click)="hide = !hide">
+            {{ hide ? "visibility" : "visibility_off" }}
+          </mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            id="confPassword"
+            matInput
+            formControlName="confPassword"
+            [(ngModel)]="confPassword"
+            placeholder="Confirmar Senha"
+            type="password"
+            [type]="hideconf ? 'text' : 'password'"
+          />
+          <mat-icon matSuffix (click)="hideconf = !hideconf">
+            {{ hideconf ? "visibility" : "visibility_off" }}
+          </mat-icon>
+        </mat-form-field>
+
+        <div fxLayoutAlign="center start">
+          <button
+            mat-button
+            [routerLink]="['/maps']"
+            class="mat-raised-button mat-secondary"
+          >
+            <mat-icon>arrow_back</mat-icon>
+            <span class="mat-button-wrapper">Voltar</span>
+          </button>
+          <button
+            mat-button
+            class="mat-raised-button mat-primary ml-2"
+            type="submit"
+            [disabled]="!editForm.valid"
+          >
+            <mat-icon>done</mat-icon>
+            <span class="mat-button-wrapper"> Confirmar</span>
+          </button>
+        </div>
+
+        <div fxLayoutAlign="center center" class="deleteDiv">
+          <button
+            mat-button
+            class="mat-raised-button mat-warn ml-2"
+            (click)="onDelete()"
+          >
+            <mat-icon>clear</mat-icon>
+            <span class="mat-button-wrapper"> Excluir conta</span>
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

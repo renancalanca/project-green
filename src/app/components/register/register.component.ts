@@ -2,6 +2,7 @@ import { UserModel } from '../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class RegisterComponent implements OnInit {
   onRegister(value) {
     this.userService.doRegister(value)
     .then(res => {
-      console.log(res);
+      this.router.navigate(['']);
     }, err => {
       if (err.message == 'The email address is already in use by another account.') {
         alert('O endereço de email já está em uso.');

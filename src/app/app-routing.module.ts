@@ -1,3 +1,4 @@
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { MapsComponent } from './components/maps/maps.component';
@@ -24,6 +25,11 @@ const routes: Routes = [
     component: PasswordResetComponent,
     data: { title: 'Redefinição de Senha' }
   },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    data: { title: 'Alteração de perfil' }
+  }
 ];
 
 

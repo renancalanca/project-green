@@ -16,8 +16,12 @@
       </mat-card-subtitle>
     </mat-card-header>
   </mat-card>
+  <button mat-menu-item (click)="editProfile()">
+    <mat-icon>edit</mat-icon>
+    <span>Alterar dados cadastrais</span>
+  </button>
   <button mat-menu-item (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
-    <span>Sign Out</span>
+    <span>Sair</span>
   </button>
 </mat-menu>

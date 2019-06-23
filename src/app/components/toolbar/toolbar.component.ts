@@ -23,6 +23,10 @@ export class ToolbarComponent implements OnInit {
     });
   }
 
+  editProfile() {
+    this.router.navigate(['/edit-profile']);
+  }
+
   logout() {
     this.userService.logout();
     this.router.navigate(['']);

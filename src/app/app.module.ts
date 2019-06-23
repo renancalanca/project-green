@@ -21,6 +21,7 @@ import { MaterialModule } from "./material-module";
 import { FormsModule } from "@angular/forms";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ToolbarComponent } from "./components/toolbar/toolbar.component";
     RegisterComponent,
     ToolbarComponent,
     PasswordResetComponent,
+    EditProfileComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -47,6 +49,7 @@ import { ToolbarComponent } from "./components/toolbar/toolbar.component";
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: "GoogleApiKey"
+      // apiKey: "AIzaSyDReaSBg9id9yMGLYN6rnde-eyxOFtJpYo"s
     })
   ],
   providers: [],
