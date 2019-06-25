@@ -1,8 +1,13 @@
 <mat-toolbar id="mainToolbar" color="primary" *ngIf="isAuthenticated">
   Project Green
   <span class="toolbar-spacer"></span>
-  <button mat-mini-fab color="primary" class="toolbar-avatar" [ngStyle]="{'background-image': 'url(' + isAuthenticated?.photoURL + ')' }" [matMenuTriggerFor]="avatarDropDown">
-  </button>
+  <button
+    mat-mini-fab
+    color="primary"
+    class="toolbar-avatar"
+    [ngStyle]="{ 'background-image': 'url(' + isAuthenticated?.photoURL + ')' }"
+    [matMenuTriggerFor]="avatarDropDown"
+  ></button>
 </mat-toolbar>
 
 <mat-menu #avatarDropDown="matMenu">
@@ -12,7 +17,7 @@
         {{ isAuthenticated?.displayName }}
       </mat-card-title>
       <mat-card-subtitle>
-          {{ isAuthenticated?.email }}
+        {{ isAuthenticated?.email }}
       </mat-card-subtitle>
     </mat-card-header>
   </mat-card>

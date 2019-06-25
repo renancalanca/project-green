@@ -1,14 +1,14 @@
-import { UserModel } from "./../../models/user.model";
-import { UserService } from "../../services/user.service";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { Component, OnInit, HostBinding } from "@angular/core";
-import { Router } from "@angular/router";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UserModel } from './../../models/user.model';
+import { UserService } from '../../services/user.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   isAuthenticated: firebase.User;
@@ -41,13 +41,7 @@ export class LoginComponent implements OnInit {
 
   loginGoogle() {
     this.userService.googleAuthenticate().then(data => {
-      this.router.navigate(["/maps"]);
-    });
-  }
-
-  loginFacebook() {
-    this.userService.facebookAuthenticate().then(data => {
-      this.router.navigate(["/maps"]);
+      this.router.navigate(['/maps']);
     });
   }
 
@@ -56,15 +50,15 @@ export class LoginComponent implements OnInit {
     this.userService
       .emailAndPasswordLogin(value.email, value.password)
       .then(data => {
-        this.router.navigate(["/maps"]);
+        this.router.navigate(['/maps']);
       });
   }
 
   passwordReset() {
-    this.router.navigate(["/password-reset"]);
+    this.router.navigate(['/password-reset']);
   }
 
   register() {
-    this.router.navigate(["/register"]);
+    this.router.navigate(['/register']);
   }
 }

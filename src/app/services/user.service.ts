@@ -29,21 +29,6 @@ export class UserService {
     });
   }
 
-  facebookAuthenticate() {
-    return new Promise<any>((resolve, reject) => {
-      let provider = new firebase.auth.FacebookAuthProvider();
-      this.afAuth.auth.signInWithRedirect(provider).then(
-        res => {
-          resolve(res);
-        },
-        err => {
-          console.log(err);
-          reject(err);
-        }
-      );
-    });
-  }
-
   logout() {
     this.afAuth.auth.signOut();
   }

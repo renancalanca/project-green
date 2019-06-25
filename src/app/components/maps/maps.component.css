@@ -1,7 +1,16 @@
+.maps-main {
+  background: rgba(230, 230, 230, 0.95);
+}
+
+.map-container {
+  width: 960px;
+  margin: 10px auto;
+}
+
 agm-map {
   height: 600px;
- }
+}
 
- h1{
-    color:black;
- }
+h1 {
+  color: black;
+}

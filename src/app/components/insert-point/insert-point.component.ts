@@ -45,6 +45,7 @@ export class InsertPointComponent implements OnInit {
     const r = this.servicePoint.addPoints(point);
 
     if (r) {
+      alert('Ponto cadastrado com sucesso.');
       this.router.navigate(['maps']);
     }
   }

@@ -43,7 +43,6 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
     AngularFireDatabaseModule,
     BrowserModule,
     AppRoutingModule,
