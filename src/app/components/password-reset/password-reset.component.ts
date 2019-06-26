@@ -1,6 +1,7 @@
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-password-reset',
@@ -15,6 +16,7 @@ export class PasswordResetComponent implements OnInit {
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -24,6 +26,8 @@ export class PasswordResetComponent implements OnInit {
   }
 
   onReset(value) {
-    this.userService.passwordReset(value.email);
+    this.userService.passwordReset(value.email).then(() => {
+      this.router.navigate(['login']);
+    });
   }
 }

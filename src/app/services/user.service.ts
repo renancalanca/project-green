@@ -1,9 +1,9 @@
-import { AngularFireAuth } from "@angular/fire/auth";
-import { Injectable } from "@angular/core";
-import * as firebase from "firebase/app";
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Injectable } from '@angular/core';
+import * as firebase from 'firebase/app';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class UserService {
   constructor(private afAuth: AngularFireAuth) {}
@@ -15,8 +15,8 @@ export class UserService {
   googleAuthenticate() {
     return new Promise<any>((resolve, reject) => {
       let provider = new firebase.auth.GoogleAuthProvider();
-      provider.addScope("profile");
-      provider.addScope("email");
+      provider.addScope('profile');
+      provider.addScope('email');
       this.afAuth.auth.signInWithRedirect(provider).then(
         res => {
           resolve(res);
@@ -55,11 +55,11 @@ export class UserService {
         .then(
           res => {
             console.log(res);
-            alert("E-mail de redefinição encaminhado.");
+            alert('E-mail de redefinição encaminhado.');
           },
           err => {
             console.log(err);
-            alert("Este e-mail não está cadastrado no sistema.");
+            alert('Este e-mail não está cadastrado no sistema.');
           }
         );
     });
@@ -69,11 +69,11 @@ export class UserService {
     user
       .updatePassword(confPassword)
       .then(function() {
-        alert("Senha alterada com sucesso.");
+        alert('Senha alterada com sucesso.');
         // this.userReauthenticate(user.email, confPassword);
       })
       .catch(function() {
-        alert("Erro ao alterar a senha.");
+        alert('Erro ao alterar a senha.');
       });
   }
 
@@ -83,33 +83,23 @@ export class UserService {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(
-          res => {
-          },
+          res => {},
           err => {
             if (
               err ==
-              "Error: The password is invalid or the user does not have a password."
+              'Error: The password is invalid or the user does not have a password.'
             ) {
-              alert("Erro: A senha é inválida ou o usuário não existe.");
+              alert('A senha é inválida ou o modo de autenticação utilizado por este e-mail não existe.');
+            } else if (
+              err.message ==
+              'There is no user record corresponding to this identifier. The user may have been deleted.'
+            ) {
+              alert('E-mail não encontrado.');
             }
           }
         );
     });
   }
-
-  // userReauthenticate(email, password) {
-  //   var user = firebase.auth().currentUser;
-  //   var credentials = firebase.auth.EmailAuthProvider.credential(email, password);
-
-  //   user
-  //     .reauthenticateAndRetrieveDataWithCredential(credentials)
-  //     .then(res => {
-  //       console.log(res);
-  //     })
-  //     .catch(function(error) {
-  //       alert('Erro ao reautenticar usuário.');
-  //     });
-  // }
 
   onSelfDelete(user) {
     user

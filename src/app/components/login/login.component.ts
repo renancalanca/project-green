@@ -41,24 +41,23 @@ export class LoginComponent implements OnInit {
 
   loginGoogle() {
     this.userService.googleAuthenticate().then(data => {
-      this.router.navigate(['/maps']);
+      this.router.navigate(['maps']);
     });
   }
 
   onLogin(value) {
-    console.log(value);
     this.userService
       .emailAndPasswordLogin(value.email, value.password)
       .then(data => {
-        this.router.navigate(['/maps']);
+        this.router.navigate(['maps']);
       });
   }
 
   passwordReset() {
-    this.router.navigate(['/password-reset']);
+    this.router.navigate(['password-reset']);
   }
 
   register() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['register']);
   }
 }

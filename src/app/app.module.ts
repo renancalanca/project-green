@@ -51,7 +51,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     FlexLayoutModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'GoogleApiKey'
+      apiKey: 'AIzaSyDReaSBg9id9yMGLYN6rnde-eyxOFtJpYo'
     })
   ],
   entryComponents: [

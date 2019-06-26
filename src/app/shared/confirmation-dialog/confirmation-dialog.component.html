@@ -5,17 +5,17 @@
 <div mat-dialog-actions>
   <button
     mat-raised-button
-    (click)="onNoClick()"
-    class="mat-raised-button mat-secondary"
-  >
-    No
-  </button>
-  <button
-    mat-raised-button
     [mat-dialog-close]="true"
     cdkFocusInitial
     class="mat-raised-button mat-primary ml-2"
   >
     Yes
+  </button>
+  <button
+    mat-raised-button
+    (click)="onNoClick()"
+    class="mat-raised-button mat-secondary"
+  >
+    No
   </button>
 </div>

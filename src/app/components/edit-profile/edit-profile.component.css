@@ -1,10 +1,9 @@
 .edit-main{
-    margin-top: 10%; 
+    margin-top: 5%; 
 }
 
 mat-card {
   background: rgba(230, 230, 230, 0.95);
-  min-width: 40%;
 }
 
 mat-form-field {

@@ -1,16 +1,25 @@
 .maps-main {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+mat-card {
   background: rgba(230, 230, 230, 0.95);
+  min-width: 40%;
 }
 
 .map-container {
-  width: 960px;
-  margin: 10px auto;
+  min-width: 40%;
+  margin: auto;
+}
+
+#btnNewPoint {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 agm-map {
-  height: 600px;
-}
-
-h1 {
-  color: black;
+  height: 480px;
+  min-width: 40%;
+  min-height: 40%;
 }

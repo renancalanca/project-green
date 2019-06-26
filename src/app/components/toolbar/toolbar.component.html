@@ -1,13 +1,27 @@
 <mat-toolbar id="mainToolbar" color="primary" *ngIf="isAuthenticated">
-  Project Green
+    Sk8er Point
   <span class="toolbar-spacer"></span>
-  <button
-    mat-mini-fab
-    color="primary"
-    class="toolbar-avatar"
-    [ngStyle]="{ 'background-image': 'url(' + isAuthenticated?.photoURL + ')' }"
-    [matMenuTriggerFor]="avatarDropDown"
-  ></button>
+
+  <div *ngIf="isAuthenticated?.photoURL">
+      <button
+      mat-mini-fab
+      color="primary"
+      class="toolbar-avatar"
+      [ngStyle]="{ 'background-image': 'url(' + isAuthenticated?.photoURL + ')' }"
+      [matMenuTriggerFor]="avatarDropDown"
+    ></button>
+  </div>
+
+  <div *ngIf="!isAuthenticated?.photoURL">
+      <button
+      mat-mini-fab
+      color="primary"
+      class="toolbar-avatar"
+      [ngStyle]="{ 'background-image': 'url(../../../assets/images/profile-icon.png)' }"
+      [matMenuTriggerFor]="avatarDropDown"
+    ></button>
+  </div>
+  
 </mat-toolbar>
 
 <mat-menu #avatarDropDown="matMenu">

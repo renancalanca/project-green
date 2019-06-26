@@ -1,6 +1,10 @@
 <div class="maps-main">
-  <div class="container-fluid">
-    <h1 fxLayoutAlign="center center">Estações de Skate</h1>
+  <mat-card>
+    <mat-card-title>
+      Estações de Skate
+    </mat-card-title>
+    <hr />
+
     <div class="map-container">
       <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
         <agm-marker
@@ -17,18 +21,19 @@
         >
         </agm-marker>
       </agm-map>
+      <div fxLayoutAlign="center" class="actions">
+        <button
+          *ngIf="isAdmin"
+          type="button"
+          id="btnNewPoint"
+          (click)="newPoint()"
+          mat-raised-button
+          class="mat-raised-button mat-primary ml-2"
+        >
+          <mat-icon>add_circle_outline</mat-icon>
+          <span class="mat-button-wrapper"> Adicionar ponto</span>
+        </button>
+      </div>
     </div>
-
-    <div fxLayoutAlign="center center" class="actions">
-      <button
-        *ngIf="isAdmin"
-        type="button"
-        id="btnNewPoint"
-        (click)="newPoint()"
-        class="btn btn-success btn-lg"
-      >
-        Adionar novo ponto
-      </button>
-    </div>
-  </div>
+  </mat-card>
 </div>
