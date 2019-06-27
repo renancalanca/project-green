@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   isAuthenticated: firebase.User;
   user: UserModel = new UserModel();
   loginForm: FormGroup;
-  hide: true;
+  hide = true;
 
   constructor(
     private formBuilder: FormBuilder,

@@ -18,8 +18,8 @@ export class EditProfileComponent implements OnInit {
   confPassword: String;
   user: UserModel = new UserModel();
   editForm: FormGroup;
-  hide: true;
-  hideconf: true;
+  hide =  true;
+  hideconf = true;
   isAuthenticated: firebase.User;
 
   constructor(
@@ -54,7 +54,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   onEdit(value) {
-    if (value.password == value.confPassword) {
+    if (value.password === value.confPassword) {
       this.userService.updatePassword(this.isAuthenticated, this.confPassword);
       this.location.back();
     } else {
@@ -70,7 +70,7 @@ export class EditProfileComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-        var currentUser = firebase.auth().currentUser;
+        const currentUser = firebase.auth().currentUser;
         this.userService.onSelfDelete(currentUser);
       }
     });

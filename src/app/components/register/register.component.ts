@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   user: UserModel = new UserModel();
   registerForm: FormGroup;
-  hide: true;
+  hide = true;
 
   constructor(
     private userService: UserService,
@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
       alert('Cadastro realizado com sucesso.');
       this.router.navigate(['maps']);
     }, err => {
-      if (err.message == 'The email address is already in use by another account.') {
+      if (err.message === 'The email address is already in use by another account.') {
         alert('O endereço de email já está em uso.');
       }
     });

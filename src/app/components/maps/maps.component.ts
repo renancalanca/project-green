@@ -34,7 +34,7 @@ export class MapsComponent implements OnInit {
   getLogged() {
     this.userService.getLoggedUser()
     .subscribe( user => {
-      if (user.email == 'renan.calanca@hotmail.com' || user.email == 'marcospcamposfilho@gmail.com') {
+      if (user.email === 'renan.calanca@hotmail.com' || user.email === 'marcospcamposfilho@gmail.com') {
         this.isAdmin = true;
       }
     });
